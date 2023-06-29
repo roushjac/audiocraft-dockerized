@@ -23,6 +23,19 @@ Check out our [sample page][musicgen_samples] or test the available demo!
 
 We use 20K hours of licensed music to train MusicGen. Specifically, we rely on an internal dataset of 10K high-quality music tracks, and on the ShutterStock and Pond5 music data.
 
+## Using Docker to handle installation/usage
+This repo contains a Dockerfile to simplify handling the environment associated with running the MusicGen model. Using Docker means you will not have to create a Python virtual environment or install any packages.
+
+Run these commands to create a Docker image and run a container for this repo on your local machine.
+
+```shell
+docker build -t audiocraft-musicgen .
+docker run -p 7860:7860 -it audiocraft-musicgen
+```
+
+Navigate to localhost:7860 in the browser to use the application.
+
+
 ## Installation
 Audiocraft requires Python 3.9, PyTorch 2.0.0, and a GPU with at least 16 GB of memory (for the medium-sized model). To install Audiocraft, you can run the following:
 
