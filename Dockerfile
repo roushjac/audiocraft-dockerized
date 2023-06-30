@@ -7,11 +7,20 @@ WORKDIR /usr/src/app
 COPY . .
 
 # install dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends apt-utils && \
+    apt-get install -y software-properties-common && \
+    echo 'deb http://deb.debian.org/debian buster-backports main' >> /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y ffmpeg
 RUN pip install --no-cache-dir -r requirements.txt
 
 # define the port number the container should expose
 # gradio (webapp framework) uses 7860 by default
 EXPOSE 7860
+
+# download the melody model as part of the image so we don't need to redownload every time a new container is spawned(??)
+RUN python -c 'from audiocraft.models import MusicGen;MusicGen.get_pretrained("melody")'
 
 # run the command
 CMD ["python", "./app.py"]
