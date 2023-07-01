@@ -19,8 +19,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # gradio (webapp framework) uses 7860 by default
 EXPOSE 7860
 
-# download the melody model as part of the image so we don't need to redownload every time a new container is spawned(??)
-RUN python -c 'from audiocraft.models import MusicGen;MusicGen.get_pretrained("melody")'
-
 # run the command
 CMD ["python", "./app.py"]
