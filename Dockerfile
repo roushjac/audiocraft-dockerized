@@ -16,7 +16,7 @@ RUN apt-get update && \
 RUN pip install --no-cache-dir -r requirements.txt
 
 # install the huggingface model
-RUN python -c "from from audiocraft.models import MusicGen; MusicGen.get_pretrained('melody')"
+RUN python -c "from audiocraft.models import MusicGen; MusicGen.get_pretrained('melody')"
 
 # define the port number the container should expose
 # gradio (webapp framework) uses 7860 by default
