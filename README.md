@@ -30,7 +30,7 @@ Run these commands to create a Docker image and run a container for this repo on
 
 ```shell
 docker build -t audiocraft-musicgen .
-docker run -p 7860:7860 -it audiocraft-musicgen
+docker run -p 7860:7860 --gpus all -it audiocraft-musicgen
 ```
 
 Navigate to localhost:7860 in the browser to use the application.
