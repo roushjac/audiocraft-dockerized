@@ -12,6 +12,7 @@ RUN apt-get update && \
     apt-get install -y software-properties-common && \
     apt-get update && \
     apt-get install -y ffmpeg && \
+    apt-get update && \
     apt-get install python3.10 -y && \
     apt-get install python3-pip -y
 RUN pip install --no-cache-dir -r requirements.txt
